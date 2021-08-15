@@ -2,16 +2,20 @@ package com.example.mycalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView textView;
+    private Button bmi_btn;
     private String operand1="", operator="", operand2="";
     private String viewText="", temp = "";
+    private int result = 0;
 
 
     @Override
@@ -19,12 +23,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.textView = findViewById(R.id.textView);
+        bmi_btn = findViewById(R.id.bmi);
+        bmi_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), bmi_calculating_activity.class));
+            }
+        });
     }
 
     public void clickedObject(View view){
+        //Get the clicked button using tag.
         String clickedObject = view.getTag().toString();
+        //variable to check whether the user has clicked any operators or not.
         boolean x = ((clickedObject.equals("+")) || (clickedObject.equals("-")) || (clickedObject.equals("x"))
                 || (clickedObject.equals("/")) || (clickedObject.equals("%")));
+        //variable to check whether all the operators and operands are null or not null.
         boolean y = ((this.operand1.equals("")) || (this.operator.equals("")) || this.operand2.equals(""));
         if((this.operand1.equals("")) && x){
             Toast.makeText(getApplicationContext(), "Enter the number first", Toast.LENGTH_SHORT).show();
@@ -34,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else if(clickedObject.equals("C")){
             this.operator = this.operand1 = this.operand2 = this.viewText = this.temp = "";
+            this.result  = 0;
             this.setText("");
         }
         else{
@@ -67,25 +82,24 @@ public class MainActivity extends AppCompatActivity {
     private void calculate() {
         int a = Integer.parseInt(operand1);
         int b = Integer.parseInt(operand2);
-        int c;
         switch (this.operator) {
             case "+":
-                c = a + b;
+                result = a + b;
                 break;
             case "-":
-                c = a - b;
+                result = a - b;
                 break;
             case "x":
-                c = a * b;
+                result = a * b;
                 break;
             case "/":
-                c = a / b;
+                result = a / b;
                 break;
             default:
-                c = a % b;
+                result = a % b;
                 break;
         }
-        this.setText(Integer.toString(c));
+        this.setText(Integer.toString(result));
     }
 
     private void setText(String text){

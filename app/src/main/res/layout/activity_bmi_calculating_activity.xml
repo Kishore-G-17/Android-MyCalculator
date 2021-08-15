@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        tools:context=".bmi_calculating_activity">
+
+        <EditText
+            android:id="@+id/height"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:hint="Enter height(cm)"
+            style="@style/myEditTextStyle"
+            android:textAlignment="center"
+            android:theme="@android:style/Theme.Holo"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/weight"
+            android:layout_margin="10dp"
+            style="@style/myEditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:hint="Enter weight(kg)"
+            android:textAlignment="center"
+            android:theme="@android:style/Theme.Holo"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/bmi_cal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="calculate"
+            android:padding="15dp"
+            android:textSize="25sp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_design"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/result"
+            android:text=""
+            android:layout_marginTop="20dp"
+            style="@style/myEditTextStyle"/>
+
+    </LinearLayout>
+
+</ScrollView>
