@@ -56,6 +56,19 @@
             android:layout_marginTop="20dp"
             style="@style/myEditTextStyle"/>
 
+        <Button
+            android:id="@+id/contacts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go to contacts"
+            android:padding="15dp"
+            android:textSize="25sp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/button_design"
+            />
+
+
+
     </LinearLayout>
 
 </ScrollView>

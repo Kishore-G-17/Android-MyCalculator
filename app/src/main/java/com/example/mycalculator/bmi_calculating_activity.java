@@ -2,6 +2,7 @@ package com.example.mycalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +13,7 @@ public class bmi_calculating_activity extends AppCompatActivity {
 
     private EditText height_et;
     private EditText weight_et;
-    private Button bmi_calculate_btn;
+    private Button bmi_calculate_btn, contacts;
     private float height=0, weight=0, bmi=0;
     private TextView final_result;
     private String bmi_result="";
@@ -22,6 +23,13 @@ public class bmi_calculating_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmi_calculating_activity);
         Intialization();
+        contacts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), context_menu_with_list_view.class);
+                startActivity(intent);
+            }
+        });
         bmi_calculate_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,5 +60,6 @@ public class bmi_calculating_activity extends AppCompatActivity {
         this.weight_et = findViewById(R.id.weight);
         this.bmi_calculate_btn = findViewById(R.id.bmi_cal);
         this.final_result = findViewById(R.id.result);
+        this.contacts = findViewById(R.id.contacts);
     }
 }
